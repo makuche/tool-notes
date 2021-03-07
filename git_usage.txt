@@ -1,8 +1,20 @@
+###################################################
 ### Git Version Control Usage
+###################################################
 
 - Git is a distributed version control system -> Everybody has a local repository
   (central repo is optional) -> Every developer has a backup/copy of the repo on their machine
 
+
+# Most important commands
+git init      # Initialize a git repository
+git status    # Check staged files
+git add <file>  # Add changed file to stage
+git commit -m "<comment>" # Add commit
+git pull  # Pull repository branch
+git push  # Push current staged files
+
+###################################################
 
 # Configure git
 git config --global user.name "First last"          # Set user name
