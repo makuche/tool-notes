@@ -1,0 +1,28 @@
+--- Creating a virtual environment from scratch ---
+
+virtualenv test_env                         # Creates a folder, containing a virtual environment
+cd test_env
+source test_env/bin/activate                # Activates that environment 
+which python3
+which pip3
+pip3 list                                   # Lists all packages used in that environment
+pip3 install <PACKAGE-NAME>                 # Installs package
+pip3 freeze --local > requirements.txt      # Writes all installed packages to a .txt file
+                                            # (with that, env can be easily recreated)
+deactivate                                  # Deactivates the environment again
+
+
+--- Creating a virtual environment with a package list ---
+virtualenv -p /usr/bin/python3 test_env     # Optional: Use certain python version
+pip3 install -r requirements.txt            # Uses requirements.txt inside env folder to
+                                            # install packages
+deactivate
+
+
+--- Misc ---
+
+- If one uses a virtual environment, it is recommended to not put the project files into 
+the environment folder. Keep them separate. The environment folder can be deleted 
+and easily recreated by using a requirements.txt file.
+
+- pip3 list lists all the globally installed packages
