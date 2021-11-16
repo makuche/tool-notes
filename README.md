@@ -46,6 +46,19 @@ deactivate
 folder separately. With that, the environment can be deleted and easily recreated
 from the requirements.txt file.
 - ```pip3 list``` lists all globally installed packages.
+- To install an external package, either ```python3 setup.py install``` or
+```pip3 install packagename.tar.gz``` can be used. Installation with pip is
+recommended, as this is more beneficial:
+  - Pip automatically installs dependencies for a package, with ```setup.py``` this
+  has to be done manually
+  - Pip keeps track of metadata, with which commands like ```pip3 uninstall <PACKAGE>```
+  ```pip3 install --upgrade <PACKAGE>``` can be used, with ```setup.py``` this has
+  to be done manually
+  - Files don't have to be downloaded, Pip searches the Python Package Index (PyPi)
+  to see if package exists there and then downloads, extracts and installs from there.
+  - It becomes easy to install [wheels](https://pythonwheels.com/).
+  - Can be integrated well with ```virtualenv```, so multiple projects with
+  conflicting library requirements and/or python versions can be used on computer.
 
 ## Version control
 
