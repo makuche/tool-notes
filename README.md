@@ -9,33 +9,33 @@ systems, virtual environment usage, etc.
 
 
 ```bash
-virtualenv test_env                 # Creates a folder, containing a virtual environment
+virtualenv test_env                         # Creates a folder, containing a virtual environment
 ```
 ```bash
-source test_env/bin/activate         # Activates that environment
+source test_env/bin/activate                # Activates that environment
 ```
 ```bash
-which python3
+which python3                               # Prints location of Python executable (can also test which pip3)
 ```
 ```bash
-pip3 list
+pip3 list                                   # List installed packages
 ```
 ```bash
-pip3 install <PACKAGE-NAME>
+pip3 install <PACKAGE-NAME>                 # Install package
 ```
 ```bash
-pip3 freeze --local > requirements.txt
+pip3 freeze --local > requirements.txt      # Writes all installed packages to .txt file. With that, environment can be easily recreated
 ```
 ```bash
-deactivate
+deactivate                                  # Deactivate environment
 ```
 
 ### Create environment from package list
 ```bash
-virtualenv -p /usr/bin/python3 test_env
+virtualenv -p /usr/bin/python3 test_env     # Optional: Use certain python version
 ```
 ```bash
-pip3 install -r requirements.txt
+pip3 install -r requirements.txt            #  # Uses requirements.txt inside environment folder to install packages
 ```
 ```bash
 deactivate
@@ -48,4 +48,4 @@ from the requirements.txt file.
 - ```pip3 list``` lists all globally installed packages.
 
 ## Version control
-TODO
+
