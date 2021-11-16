@@ -3,6 +3,10 @@
 This is a collection of personal notes for software usage, e.g. for version control
 systems, virtual environment usage, etc.
 
+## Contents
+[Virtual environments](https://github.com/mankuch/tool-notes/#virtual-environments)
+[Version control Git](https://github.com/mankuch/tool-notes/#version-control-git)
+
 ## Virtual environments
 
 ### Creating environment from scratch
