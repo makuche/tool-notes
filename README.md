@@ -32,6 +32,11 @@ deactivate
 folder separately. With that, the environment can be deleted and easily recreated
 from the requirements.txt file.
 - ```pip3 list``` lists all globally installed packages.
+- ```setup.py``` is a python file. It's presence indicates that the module/package
+has been packaged and distributed with Disutils, a standard way for distributing
+python modules. It allows to easily install python packages. Just call
+```python3 install .```, pip will then use the setup file (avoid calling
+```setup.py```).
 - To install an external package, either ```python3 setup.py install``` or
 ```pip3 install packagename.tar.gz``` can be used. Installation with pip is
 recommended, as this is more beneficial:
@@ -106,15 +111,15 @@ git clone <url> <path_to_clone>               # General cloning command
 git clone ../remote_repo.git .                # Clones all files from remote_repo.git dicectory to .
 
 git remote -v                                 # View information about repository
-git branch -a                                 # Shows local and remote branches
 
 git pull origin master                        # Always pull before push, people could have changed the code in the
-                                              # meanwhile origin is just the name of the repository, master is the
-                                              # branch we want to push to
+                                              # Origin is the name of repository, master is branch we want to push to
 git push origin master                        # Pushes local changes to repo, so other people have access to it
 
-git branch <name>                             # creates branch with the name "name"
-git branch                                    # lists branches (local?)
+git branch <name>                             # Creates branch with the name "name"
+git branch <name> <root-branch>               # Creates branch, based on existing branch
+git branch                                    # Shows local branches
+git branch -a                                 # Shows local and remote branches
 ```
 
 ### Merging a branch
