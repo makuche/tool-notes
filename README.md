@@ -1,13 +1,14 @@
-## About this repository
+# About this repository
 
 This is a collection of personal notes for software usage, e.g. for version control
 systems, virtual environment usage, etc.
 
-## Contents
+# Contents
 [Virtual environments](https://github.com/mankuch/tool-notes/#virtual-environments)
+
 [Version control Git](https://github.com/mankuch/tool-notes/#version-control-git)
 
-## Virtual environments
+# Virtual environments
 
 ### Creating environment from scratch
 ```bash
@@ -27,6 +28,38 @@ pip3 install -r requirements.txt            #  # Uses requirements.txt inside en
 deactivate
 ```
 
+### Installing a project package
+(The following is taken from 'Good Research Code' by Patrick Mineault).
+It is convenient to use functions, classes or other objects across the project folder. For that, one can install a 'pip-installable' package in the following way:
+#### 1. Create a `setup.py` file
+```
+from setuptools import setup, find_packages
+
+setup(
+    name=`src`,
+    packages=find_packages()
+)
+```
+#### 2. Create a `__init__.py` file
+Create an empty `__init__.py` file in `src/`, e.g. by `touch src/__init__.py`. With that, the function `find_packages` can find our project-specific package.
+
+#### 3. `pip install` the package
+Install the package by calling
+```
+pip install -e .
+```
+#### 4. Using the package
+Consider the function `hello_world` is implemented
+in the package `src.py`. Then the function can be
+called (within the activated environment) by
+```
+import src.hello_world
+```
+#### 3. (Optional) Change name of the package
+```
+mv src new_name
+pip install -e .
+```
 ### Misc
 - If one uses environments, it's recommended to keep project files and the environment
 folder separately. With that, the environment can be deleted and easily recreated
@@ -51,7 +84,7 @@ recommended, as this is more beneficial:
   - Can be integrated well with ```virtualenv```, so multiple projects with
   conflicting library requirements and/or python versions can be used on computer.
 
-## Version control Git
+# Version control Git
 Gir is a distributed version control system. Everybody developer has a local
 repository (backup/copy) on their machine, a central repository is optional.
 Possible scenarios are e.g., one wants to start tracking an existing project
