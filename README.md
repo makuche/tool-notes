@@ -19,6 +19,10 @@ pip3 list                                   # List installed packages
 pip3 install <PACKAGE-NAME>                 # Install package
 pip3 freeze --local > requirements.txt      # Writes all installed packages to .txt file. With that, environment can be easily recreated
 deactivate                                  # Deactivate environment
+
+# Installs ipykernel, so that 'test' kernel jupyter notebook can use kernel 'test'
+# With that, jupyter notebook uses the libraries from the activated environment (instead of the globally installed libraries)
+python3 -m ipykernel install --user --name=test
 ```
 
 ### Create environment from package list
@@ -163,4 +167,16 @@ git merge <branch> master                     # Merges <branch> and master
 git branch --merged                           # Shows merged branch
 git push origin master
 git branch -d <branch>                        # Branch can now be deleted
+```
+
+### Starting and accessing HTTP Server
+```bash
+# Creates HTTP server that can be accessed in the same network (by calling IP address and port in browser, e.g. 127.0.0.1:8000)
+# With that, files between computers in the same network can be exchanged
+python3 -m http.server
+
+# Prints information on access to internet. 1 is 'something historical' (can be ignored),
+# 2 is ethernet cable, 3 (wl) is wifi: inet xxx.xxx.xxx.xx shows the IP address,
+# 4 is internet access for the docker container
+ip address
 ```
