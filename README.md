@@ -180,3 +180,8 @@ python3 -m http.server
 # 4 is internet access for the docker container
 ip address
 ```
+
+### Visual Studio Code
+Useful shortcuts:
+- `STRG+SHIFT+`\` opens terminal. If VS Code has opened folder, shell path is set to this folder.
+- `STRG+ALT+N` can be used to execute a Python file
