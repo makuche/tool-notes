@@ -8,6 +8,12 @@ systems, virtual environment usage, etc.
 
 [Version control Git](https://github.com/mankuch/tool-notes/#version-control-git)
 
+[Linux commands](https://github.com/mankuch/tool-notes/#linux-commands)
+
+[Starting and accessing HTTP Server](https://github.com/mankuch/tool-notes/#starting-and-accessing-http-server)
+
+[Visual Studio Code](https://github.com/mankuch/tool-notes/#visual-studio-code)
+
 # Virtual environments
 
 ### Creating environment from scratch
@@ -169,7 +175,16 @@ git push origin master
 git branch -d <branch>                        # Branch can now be deleted
 ```
 
-### Starting and accessing HTTP Server
+# Linux commands
+```bash
+ln -s {source-filename} {symbolic-filename}             # Soft link named symbolic-filename, refering to the symbolic filepath
+# Note that source-filename can also be a directory, e.g. such as
+ln -s /home/test/http/users/manuel/ /app/
+# Soft links serve as a reference to another file or directory. Hard links refer to the actual location of physical data.
+```
+
+
+# Starting and accessing HTTP Server
 ```bash
 # Creates HTTP server that can be accessed in the same network (by calling IP address and port in browser, e.g. 127.0.0.1:8000)
 # With that, files between computers in the same network can be exchanged
@@ -181,7 +196,7 @@ python3 -m http.server
 ip address
 ```
 
-### Visual Studio Code
+# Visual Studio Code
 Useful shortcuts:
 - `STRG+SHIFT+`\` opens terminal. If VS Code has opened folder, shell path is set to this folder.
 - `STRG+ALT+N` can be used to execute a Python file
