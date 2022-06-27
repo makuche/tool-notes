@@ -14,6 +14,8 @@ systems, virtual environment usage, etc.
 
 [Visual Studio Code](https://github.com/mankuch/tool-notes/#visual-studio-code)
 
+[Debugging and exploratory programming](https://github.com/mankuch/tool-notes/#debugging-and-exploratory-programming)
+
 # Virtual environments
 
 ### Creating environment from scratch
@@ -200,3 +202,13 @@ ip address
 Useful shortcuts:
 - `STRG+SHIFT+`\` opens terminal. If VS Code has opened folder, shell path is set to this folder.
 - `STRG+ALT+N` can be used to execute a Python file
+
+# Debugging and exploratory programming
+
+```Python
+for a in range(20):
+    print(a)
+    if a == 10:
+        import IPython; IPython.embed()
+```
+The code opens an IPython promt that can be used to explore stages in a code. This is very useful to [learn new APIs or debug code](https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/).
