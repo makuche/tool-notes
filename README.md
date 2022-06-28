@@ -16,6 +16,9 @@ systems, virtual environment usage, etc.
 
 [Debugging and exploratory programming](https://github.com/mankuch/tool-notes/#debugging-and-exploratory-programming)
 
+[Profiling in Python](https://github.com/mankuch/tool-notes/#profiling-in-python)
+
+
 # Virtual environments
 
 ### Creating environment from scratch
@@ -212,3 +215,25 @@ for a in range(20):
         import IPython; IPython.embed()
 ```
 The code opens an IPython promt that can be used to explore stages in a code. This is very useful to [learn new APIs or debug code](https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/).
+
+# Profiling in Python
+- Profiling useful to detect bottlenecks in the implementation
+- Can be applied by `python3 -m cProfile -o out.prof script.py`
+- Visualization either via
+    - `snakeviz out.prof    # Interactive tool (includes runtimes)`
+    - `gprof2dot -f pstats out.prof | dot -Tpng -o output.png   # Creates directed graph (no runtimes, resources in %)`
+In an API, one can use Profiling e.g. via
+```Python
+def main(args=None):
+    """The main routine..."""
+    
+    import cProfile, pstats
+    profiler = cProfile.Profile()
+    profiler.enable()
+    
+    ## HERE COMES THE CODE
+    
+    profiler.disable()
+    stats = pstats.Stats(profiler)
+    stats.dump_stats('out.prof')
+```
