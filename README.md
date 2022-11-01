@@ -8,6 +8,17 @@ systems, virtual environment usage, etc.
 
 [Version control Git](https://github.com/mankuch/tool-notes/#version-control-git)
 
+[Linux commands](https://github.com/mankuch/tool-notes/#linux-commands)
+
+[Starting and accessing HTTP Server](https://github.com/mankuch/tool-notes/#starting-and-accessing-http-server)
+
+[Visual Studio Code](https://github.com/mankuch/tool-notes/#visual-studio-code)
+
+[Debugging and exploratory programming](https://github.com/mankuch/tool-notes/#debugging-and-exploratory-programming)
+
+[Profiling in Python](https://github.com/mankuch/tool-notes/#profiling-in-python)
+
+
 # Virtual environments
 
 ### Creating environment from scratch
@@ -169,7 +180,16 @@ git push origin master
 git branch -d <branch>                        # Branch can now be deleted
 ```
 
-### Starting and accessing HTTP Server
+# Linux commands
+```bash
+ln -s {source-filename} {symbolic-filename}             # Soft link named symbolic-filename, refering to the symbolic filepath
+# Note that source-filename can also be a directory, e.g. such as
+ln -s /home/test/http/users/manuel/ /app/
+# Soft links serve as a reference to another file or directory. Hard links refer to the actual location of physical data.
+```
+
+
+# Starting and accessing HTTP Server
 ```bash
 # Creates HTTP server that can be accessed in the same network (by calling IP address and port in browser, e.g. 127.0.0.1:8000)
 # With that, files between computers in the same network can be exchanged
@@ -179,4 +199,41 @@ python3 -m http.server
 # 2 is ethernet cable, 3 (wl) is wifi: inet xxx.xxx.xxx.xx shows the IP address,
 # 4 is internet access for the docker container
 ip address
+```
+
+# Visual Studio Code
+Useful shortcuts:
+- `STRG+SHIFT+`\` opens terminal. If VS Code has opened folder, shell path is set to this folder.
+- `STRG+ALT+N` can be used to execute a Python file
+
+# Debugging and exploratory programming
+
+```Python
+for a in range(20):
+    print(a)
+    if a == 10:
+        import IPython; IPython.embed()
+```
+The code opens an IPython promt that can be used to explore stages in a code. This is very useful to [learn new APIs or debug code](https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/).
+
+# Profiling in Python
+- Profiling useful to detect bottlenecks in the implementation
+- Can be applied by `python3 -m cProfile -o out.prof script.py`
+- Visualization either via
+    - `snakeviz out.prof    # Interactive tool (includes runtimes)`
+    - `gprof2dot -f pstats out.prof | dot -Tpng -o output.png   # Creates directed graph (no runtimes, resources in %)`
+In an API, one can use Profiling e.g. via
+```Python
+def main(args=None):
+    """The main routine..."""
+    
+    import cProfile, pstats
+    profiler = cProfile.Profile()
+    profiler.enable()
+    
+    ## HERE COMES THE CODE
+    
+    profiler.disable()
+    stats = pstats.Stats(profiler)
+    stats.dump_stats('out.prof')
 ```
