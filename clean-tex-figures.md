@@ -11,8 +11,13 @@ Embedding a PDF figure/graph in a TeX document that automatically adapts/convert
     \label{fig:TODO}  % optional
 \end{figure}
 ```
-4. (This has to be done only once) Add the following command to the beginning of your document or to your `config.tex`:
+4. (This has to be done only once) Import required packages and add the following command to the beginning of your document or to your `config.tex`:
 ```
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
 \newcommand{\incfig}[1]{%
     \def\svgwidth{\columnwidth}
     \import{./images/}{#1.pdf_tex}
