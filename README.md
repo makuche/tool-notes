@@ -25,6 +25,7 @@ systems, virtual environment usage, etc.
 ```bash
 virtualenv test_env                         # Creates a folder, containing a virtual environment
 source test_env/bin/activate                # Activates that environment
+source test_env/bin/activate.fish           # Activates that environment for fish shell
 which python3                               # Prints location of Python executable (can also test which pip3)
 pip3 list                                   # List installed packages
 pip3 install <PACKAGE-NAME>                 # Install package
