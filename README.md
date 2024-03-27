@@ -181,6 +181,16 @@ git push origin master
 git branch -d <branch>                        # Branch can now be deleted
 ```
 
+### Rebase branch
+```bash
+git stash 
+git fetch origin main:main
+git rebase main
+# Force with lease prevents pushing changes since the fetch, if someone else has pushed since then
+git push --force-with-lease origin feat/test-branch    
+git stash pop
+```
+
 # Linux commands
 ```bash
 ln -s {source-filename} {symbolic-filename}             # Soft link named symbolic-filename, refering to the symbolic filepath
