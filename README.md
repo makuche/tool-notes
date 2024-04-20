@@ -18,6 +18,7 @@ systems, virtual environment usage, etc.
 
 [Profiling in Python](https://github.com/mankuch/tool-notes/#profiling-in-python)
 
+[HTMX](https://github.com/mankuch/tool-notes/#htmx)
 
 # Virtual environments
 
@@ -248,3 +249,28 @@ def main(args=None):
     stats = pstats.Stats(profiler)
     stats.dump_stats('out.prof')
 ```
+
+
+
+# HTMX
+TLDR: Library to access modern browser capabilities from HTML instead of Javascript.
+- Htmx is a dependency-free Javascript library
+- HTTP requests are sent asynchronously
+- Extends HTML: Any _element_ (not only anchors and forms) can issue HTTP requests
+- Any _event_ (not only clicks and form submissions) can issue HTTP requests
+- All HTTP verbs can be used
+- Servers typically respond with HTML instead of JSON
+- Htmx requests re
+
+Example for Migration from React to HTMX:
+[react to htmx](https://htmx.org/essays/a-real-world-react-to-htmx-port/)
+Summary:
+- Took about 2 months (21K LOC, mostly JavaScript)
+- No reduction in the application’s user experience (UX)
+- Reduced the code base size by 67% (21,500 LOC to 7200 LOC)
+- Increased backend (py) code by 140% (500 LOC to 1200 LOC)
+- Reduced their total JS dependencies by 96% (255 to 9)
+- Reduced their web build time by 88% (40 seconds to 5)
+- First load time-to-interactive was reduced by 50-60% (from 2 to 6 seconds to 1 to 2 seconds)
+- Much larger data sets were possible when using htmx, because react simply couldn’t handle the data
+- Web application memory usage was reduced by 46% (75MB to 45MB)
