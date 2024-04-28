@@ -101,6 +101,26 @@ recommended, as this is more beneficial:
   - Can be integrated well with ```virtualenv```, so multiple projects with
   conflicting library requirements and/or python versions can be used on computer.
 
+### Using a makefile for Python projects:
+
+```Makefile
+.PHONY: requirements test
+
+.venv:
+    python3 -m venv .venv
+
+requirements:
+    source .venv/bin/activate && \
+        python3 -m pip install -r requirements.txt && \
+        python3 -m pip install pytest
+
+test: .venv requirements dev-requirements
+    source .venv/bin/activate && \
+        pytest
+
+```
+
+
 # Version control Git
 Gir is a distributed version control system. Everybody developer has a local
 repository (backup/copy) on their machine, a central repository is optional.
