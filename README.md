@@ -248,6 +248,78 @@ for a in range(20):
 ```
 The code opens an IPython promt that can be used to explore stages in a code. This is very useful to [learn new APIs or debug code](https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/).
 
+## Available exceptions in Python
+```
+BaseException
+ ├── BaseExceptionGroup
+ ├── GeneratorExit
+ ├── KeyboardInterrupt
+ ├── SystemExit
+ └── Exception
+      ├── ArithmeticError
+      │    ├── FloatingPointError
+      │    ├── OverflowError
+      │    └── ZeroDivisionError
+      ├── AssertionError
+      ├── AttributeError
+      ├── BufferError
+      ├── EOFError
+      ├── ExceptionGroup [BaseExceptionGroup]
+      ├── ImportError
+      │    └── ModuleNotFoundError
+      ├── LookupError
+      │    ├── IndexError
+      │    └── KeyError
+      ├── MemoryError
+      ├── NameError
+      │    └── UnboundLocalError
+      ├── OSError
+      │    ├── BlockingIOError
+      │    ├── ChildProcessError
+      │    ├── ConnectionError
+      │    │    ├── BrokenPipeError
+      │    │    ├── ConnectionAbortedError
+      │    │    ├── ConnectionRefusedError
+      │    │    └── ConnectionResetError
+      │    ├── FileExistsError
+      │    ├── FileNotFoundError
+      │    ├── InterruptedError
+      │    ├── IsADirectoryError
+      │    ├── NotADirectoryError
+      │    ├── PermissionError
+      │    ├── ProcessLookupError
+      │    └── TimeoutError
+      ├── ReferenceError
+      ├── RuntimeError
+      │    ├── NotImplementedError
+      │    └── RecursionError
+      ├── StopAsyncIteration
+      ├── StopIteration
+      ├── SyntaxError
+      │    └── IndentationError
+      │         └── TabError
+      ├── SystemError
+      ├── TypeError
+      ├── ValueError
+      │    └── UnicodeError
+      │         ├── UnicodeDecodeError
+      │         ├── UnicodeEncodeError
+      │         └── UnicodeTranslateError
+      └── Warning
+           ├── BytesWarning
+           ├── DeprecationWarning
+           ├── EncodingWarning
+           ├── FutureWarning
+           ├── ImportWarning
+           ├── PendingDeprecationWarning
+           ├── ResourceWarning
+           ├── RuntimeWarning
+           ├── SyntaxWarning
+           ├── UnicodeWarning
+           └── UserWarning
+```
+
+
 # Profiling in Python
 - Profiling useful to detect bottlenecks in the implementation
 - Can be applied by `python3 -m cProfile -o out.prof script.py`
